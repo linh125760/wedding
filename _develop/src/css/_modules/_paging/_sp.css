@@ -1,0 +1,58 @@
+@media (--sp) {
+  .paging {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: vw(75);
+
+    li {
+      margin: 0 vw(6);
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: vw(10);
+        font-size: vw(26);
+        font-family: var(--font-en);
+      }
+
+      &.prev,
+      &.next {
+        margin: 0 vw(34);
+
+        a {
+          border: none;
+          font-size: vw(17);
+          background-color: var(--primary-color);
+          border-radius: 50%;
+          width: vw(34);
+          height: vw(34);
+
+          &:before {
+            color: #fff;
+            font-size: vw(12);
+            letter-spacing: 0;
+          }
+        }
+      }
+
+      &.active {
+        a {
+          font-weight: bold;
+        }
+      }
+
+      &.disable {
+        cursor: not-allowed;
+        user-select: none;
+        opacity: 0.4;
+
+        a {
+          pointer-events: none;
+          background-color: #cacaca;
+        }
+      }
+    }
+  }
+}

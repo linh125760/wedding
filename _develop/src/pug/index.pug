@@ -1,0 +1,128 @@
+extends ./utils/_base.pug
+
+block append stylesheet
+  link(rel="stylesheet", href=assetPath + 'css/top.css')
+
+block append vars
+  - var pageClass ='page-home'
+
+block main
+  .row
+    .mv 
+      .mv-heading
+        .mv-heading_title 
+          |SAVE 
+          span the 
+          |DATE
+        .mv-heading_date 
+          |25.05.2025
+      
+      .mv-invite 
+        p THIỆP MỜI 
+        P.font-second.mv-invite01 TRÂN TRỌNG KÍNH MỜI
+        P.font-hand.mv-invite02 Quý khách 
+
+        P ĐẾN DỰ LỄ THÀNH HÔN<br>CỦA GIA ĐÌNH CHÚNG TÔI
+    
+    .intro
+      div
+        p.name NGỌC LINH
+        p.font-hand.with cùng
+        p.name THANH HƯƠNG
+      
+      figure 
+        +img('section01.jpg').fit
+
+      div.address
+        p.font-hand Tư Gia Nam
+        p Tổ 5, Liễu Thạnh, Bình Nguyên, 
+          br.only-sp
+          |Thăng Bình, Quảng Nam 
+        p Vào lúc 10h15 - Chủ Nhật 
+        p.font-second 
+          strong NGÀY 25 THÁNG 05 NĂM 2025
+        p
+          i ( Nhằm Ngày 28 Tháng 04 Âm Lịch ) 
+
+    .our-little 
+      .our-little__content
+        p.our-little__font01 our
+          span little
+        p.our-little__font02 Love song
+
+    .gallery 
+      .gallery-wrap 
+        figure.gallery01
+          +img('gallery01.jpg').fit
+          .ill
+        figure.gallery02
+          +img('gallery02.jpg').fit
+          .ill
+        figure.gallery03
+          +img('gallery03.jpg').fit
+          .ill
+        figure.gallery04
+          +img('gallery04.jpg').fit
+          .ill
+      
+      .gallery-content 
+        p.gallery-content__txt NGỌC LINH & THANH HƯƠNG 
+          br  
+          span 25.05.2025
+        p.gallery-content__ttl The big day timeline !
+
+        .timeline 
+          dl
+            dt 10:15
+            dd ĐÓN KHÁCH
+              figure 
+                +img('timeline01.png').fit
+          
+          dl
+            dt 10:30
+            dd LỄ CƯỚI
+              figure 
+                +img('timeline02.png').fit
+          
+          dl
+            dt 10:45
+            dd NHẬP TIỆC
+              figure 
+                +img('timeline03.png').fit
+          
+          dl
+            dt 12:15
+            dd CHỤP ẢNH
+              figure 
+                +img('timeline04.png').fit
+          
+    .our-little.our-little01
+
+    .love-story 
+      p.love-story__ttl AND HOW WE MET...
+      p.love-story__txt 
+        |Chúng tôi quen nhau vào năm 2018, khi cả hai còn là những học sinh lớp 12 non nớt, hồn nhiên và chẳng biết trước tương lai sẽ ra sao. Vậy mà từng ngày trôi qua, chúng tôi đã nắm tay nhau đi qua những năm tháng tuổi trẻ, có nước mắt, có nụ cười, có giận hờn, nhưng hơn tất cả là tình yêu chân thành luôn hiện diện. Sau 7 năm gắn bó, hôm nay chúng tôi chọn ở bên nhau – không còn là người yêu, mà là bạn đời. Cảm ơn em vì đã luôn ở lại. Và cảm ơn mọi người vì đã có mặt ở đây, chứng kiến khoảnh khắc thiêng liêng nhất trong cuộc đời chúng tôi.
+
+    .wrap-image 
+      figure 
+        +img('gallery04.jpg').fit
+      figure
+        +img('gallery04.jpg').fit
+      figure
+        +img('gallery04.jpg').fit
+
+    .thanks 
+      .name-wrap 
+        figure 
+          +img('logo_lh.svg').fit
+
+      p.thanks-txt Kết thúc quá trình yêu nhau 7 năm, tụi mình đã tiến tới hôn nhân. 
+        br
+        |Hy vọng mọi người sẽ dành thời gian đến chung vui cùng gia đình. Hân hạnh!
+      p.thanks-ttl Thank
+        span you!
+      
+      figure 
+        +img('gallery01.jpg').fit
+block append script
+  script(src=assetPath + 'js/top.js', type="module", crossorigin)

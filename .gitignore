@@ -1,0 +1,13 @@
+node_modules/
+/vendor
+.DS_Store
+!.gitkeep
+/apps/web/app/tmp/cache
+/apps/web/app/tmp/logs
+error.log
+debug_kit.sqlite
+_develop/src/pug/second/detail.pug
+public_html/second
+public_html/assets/css/second.css
+public_html/assets/js/second.js
+public_html/assets/js/second-two.js

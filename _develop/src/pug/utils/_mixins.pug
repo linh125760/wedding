@@ -1,0 +1,152 @@
+-
+  const getImageDimension = (src) => {
+    const targetSrc = `${ src }`
+    let targetPath = `images/${targetSrc}`
+      .replace(/["']/g, '')
+      .replace(/\.\.\//g, '')
+      .replace(/^\//i, '');
+    targetPath = nodePath.resolve(nodeDest, `${ process.env.npm_package_config_assetPath }/`, targetPath);
+    let isError = false;
+    let dimensions = null;
+    try {
+      let file = nodeFs.readFileSync(targetPath);
+    } catch(e) {
+      isError = true;
+    }
+    if (!isError) {
+      dimensions = nodeSize(targetPath);
+    }
+    return dimensions;
+  }
+//-  pictureタグ
+//-  imagesからでいいです。例) +pic('images/utils/logo.png', 'images/utils/logo_sp.png', 'alt');
+-
+  const getWepPPath = (src) => {
+    return src.replace(/\.jpg$|\.jpeg$|\.png$/g, '.webp')
+  }
+mixin pic(pc, sp, alt='')
+  -
+    const dimensionsPc = getImageDimension(pc);
+    const dimensionsSp = getImageDimension(sp);
+    const ratioPC = 769;
+  picture
+    if process.env.npm_package_config_enableWebP && pc.match(/\.jpg$|\.jpeg$|\.png$/g)
+      if (dimensionsPc)
+        source(srcset=pathImg + getWepPPath(pc), media=`(min-width:${ ratioPC }px)`, type='image/webp', width=dimensionsPc.width, height=dimensionsPc.height)
+      else
+        source(srcset=pathImg + getWepPPath(pc), media=`(min-width:${ ratioPC }px)`, type='image/webp')
+    else
+      if (dimensionsPc)
+        source(srcset=pathImg + pc, media=`(min-width:${ ratioPC }px)`, width=dimensionsPc.width, height=dimensionsPc.height)
+      else
+        source(srcset=pathImg + pc, media=`(min-width:${ ratioPC }px)`)
+    if process.env.npm_package_config_enableWebP && sp.match(/\.jpg$|\.jpeg$|\.png$/g)
+      != '\n          '
+      if (dimensionsSp)
+        img(src=pathImg + getWepPPath(sp), alt=alt, class=attributes.class, width=dimensionsSp.width, height=dimensionsSp.height)
+      else
+        img(src=pathImg + getWepPPath(sp), alt=alt, class=attributes.class)
+    else
+      != '\n          '
+      if (dimensionsSp)
+        img(src=pathImg + sp, alt=alt, class=attributes.class, width=dimensionsSp.width, height=dimensionsSp.height)
+      else
+        img(src=pathImg + sp, alt=alt, class=attributes.class)
+
+
+mixin img(src, alt='', isLazy = true)
+  -
+    const dimensions = getImageDimension(src);
+  if process.env.npm_package_config_enableWebP && src.match(/\.jpg$|\.jpeg$|\.png$/g)
+    if dimensions
+      img(src=pathImg + getWepPPath(src), alt=alt, width=dimensions.width, height=dimensions.height, loading=isLazy ? "lazy" : "eager", decoding="async", class=attributes.class)
+    else
+      img(src=pathImg + getWepPPath(src), alt=alt, loading=isLazy ? "lazy" : "eager", decoding="async")
+  else
+    if dimensions
+      img(src=pathImg + src, alt=alt, width=dimensions.width, height=dimensions.height, loading=isLazy ? "lazy" : "eager", decoding="async", class=attributes.class)
+    else
+      img(src=pathImg + src, alt=alt, loading=isLazy ? "lazy" : "eager", decoding="async",  class=attributes.class)
+
+
+//-
+  ** Create main visual element
+  **
+  * @enTitle String
+  * @jpTitle String
+mixin mv(enTitle, jpTitle)
+  .mv
+    .row.mv__inner
+      h2.mv-title
+        span.mv-title__en!=enTitle
+        span.mv-title__ja!=jpTitle
+
+//-
+  ** Create main visual element
+  **
+  * @list Array
+  
+mixin breadcrumb(list = [])
+  .breadcrumb
+    ul.row
+      li
+        a(href=pathLink) Home
+      each item in list
+        li
+          if (item.link)
+            a(href=`${pathLink}${item.link}`)=item.name
+          else
+            span=item.name
+
+//- For menu
+mixin menu(listMenu)
+  ul 
+    each menu in listMenu
+      li
+        if menu.isOutside
+          a(href=menu.link target="_blank", rel="noopener noreferrer") !{menu.label}
+        else
+            a(href=menu.link) !{menu.label}
+         
+mixin accordion(triggerName, checked=false)
+  .accordion
+    label.accordion__trigger
+      input(type="checkbox", hidden, checked=checked)
+      | #{triggerName}
+    .accordion__target
+      .accordion__inner
+        block
+
+mixin pagination()
+  ul.paging
+    li.prev
+      a(href="#").glyphs-arrow-btn &nbsp;
+    li
+      a(href="#") 1
+    li.dot
+      //- a(href="#") ...
+    li
+      a(href="#") 5
+    li.active
+      a(href="#") 6
+    li
+      a(href="#") 7
+    li.dot
+      //- a(href="#") ...
+    li
+      a(href="#") 10
+    li.next
+      a(href="#").glyphs-arrow-btn &nbsp;
+
+mixin RadioField
+  label.radio-container(class=attributes.class, id=attributes.id)
+    !=attributes.label.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&quot;/g, '"')
+    input(type="radio", name=attributes.name, value=attributes.value, checked=attributes.checked)
+    span.radio-mark
+
+mixin CheckField
+  label.check-container(class=attributes.class, id=attributes.id, data-modal=attributes.modal)
+    if attributes.label
+      !=attributes.label.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&quot;/g, '"')
+    input(type="checkbox", name=attributes.name, value=attributes.value, checked=attributes.checked)
+    span.check-mark

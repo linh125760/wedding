@@ -1,0 +1,26 @@
+@media (--sp) {
+  body {
+    font-size: vw(26);
+    line-height: lh(26, 48);
+    letter-spacing: ls(100);
+  }
+  .only-pc {
+    display: none !important;
+  }
+  .root {
+    min-width: 320px;
+    overflow: hidden;
+  }
+  .row {
+    width: 100%;
+  }
+  .main {
+    &__inner {
+      padding-top: vw(55);
+      margin-bottom: vw(150);
+      &.no-padding {
+        padding-top: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+
+include ./_jsonLD
+include ./_util
+include ./_mixins
+
+block meta
+  -
+    var title = 'Đám Cưới Linh Hương';
+    var description = '';
+    var url = '';
+
+
+block subTitle
+  - var pageTitle = ''
+
+-
+  if (pageTitle.length) {
+    pageTitle = pageTitle + ' | ';
+  }
+
+block vars
+  -
+    var pageClass = '';
+    var noIndex = false;
+
+
+-
+  const errorMsg = (msg) => {
+    console.log('\033[41m【HTML ERROR】\033[0m \033[31m'+ msg +'\033[0m');
+  }
+  if (!title.length) errorMsg('タイトルが入っていないです。');
+  if (!description.length) errorMsg('Descriptionが入っていないです。');
+  if (!url.length) errorMsg('URLが入っていないです。');
+  if (!ogImageURL.length) errorMsg('OG画像指定が入っていないです。');
+  if (!hasAnalysis) errorMsg('アクセス解析を確認の上base.pug参照。');
+
+
+doctype html
+html(lang='ja')
+  head
+    if isSSI
+      != `\n\n    <!--#include virtual="${ assetPath }include/ga_head.html" -->\n`
+    else
+      include ../assets/include/ga_head.pug
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+
+    title #{pageTitle}#{title}
+
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    meta(name="format-detection", content="telephone=no")
+    meta(name='Description', content=description)
+
+
+    meta(property='og:type', content='website')
+    meta(property='og:description', content=description)
+    meta(property='og:title', content=pageTitle+title)
+    meta(property='og:url', content=url)
+    meta(property='og:image', content=ogImageURL)
+    meta(property='og:locale', content='ja_JP')
+
+    meta(name='twitter:card', content='summary')
+    meta(name='twitter:description', content=description)
+     //- meta(name='twitter:site', content="@*****") *公式user名がある場合 https://developer.twitter.com/ja/docs/tweets/optimize-with-cards/guides/getting-started
+    
+    //- script.
+    //-   const bodyWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    //-   document.documentElement.style.setProperty('--vw', (bodyWidth / 100) + 'px');
+    //-   document.documentElement.style.setProperty('--vh', (window.innerHeight / 100) + 'px');
+
+    block stylesheet
+      link(rel="preconnect", href="https://fonts.googleapis.com")
+      link(rel="preconnect", href="https://fonts.gstatic.com" crossorigin)
+      link(href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Ms+Madi&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap", rel="stylesheet")
+      link(rel="stylesheet", href=assetPath + 'css/common.css')
+      link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css", integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==", crossorigin="anonymous", referrerpolicy="no-referrer")
+
+      link(rel='shortcut icon', href='/favicon.ico')
+
+    != `\n${ createLD(jsonLD) }`
+
+    block richResults
+
+    if noIndex 
+      meta(name="robots" content="noindex, nofollow")
+
+    //- meta(name='twitter:site', content="@*****") *公式user名がある場合 https://developer.twitter.com/ja/docs/tweets/optimize-with-cards/guides/getting-started
+
+  body
+    if isSSI
+      != `\n\n    <!--#include virtual="${ assetPath }include/ga_body.html" -->\n`
+    else
+      include ../assets/include/ga_body.pug
+      
+    #root.root(class=pageClass)
+      //-
+        isSSI = trueの時SSI, そうでない時pugでコーディング
+        watch中に、static_files/include/header.htmlとかを作成すればpublic_htmlにコピーされる。
+      if isSSI
+        != `\n\n    <!--#include virtual="${ assetPath }include/header.html" -->\n`
+      else
+        include ../assets/include/header.pug
+
+      main.main#main
+        block main
+
+      //-  SSIのfooter版。サーバーで使えるか使えないかで分けると良い。
+      if isSSI
+        != `\n\n    <!--#include virtual="${ assetPath }include/footer.html" -->\n`
+      else
+        include ../assets/include/footer.pug
+
+    block script
+      script(src=assetPath + 'js/main.js', type="module", crossorigin)

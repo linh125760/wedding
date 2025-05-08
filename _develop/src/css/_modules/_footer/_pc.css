@@ -1,0 +1,6 @@
+@media (--pc) {
+  .footer {
+    display: none;
+    background-color: #f00;
+  }
+}

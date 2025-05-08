@@ -1,0 +1,56 @@
+@media (--pc) {
+  .header {
+    display: none;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    z-index: var(--z_upper);
+
+    padding: 10px 20px;
+    &__wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      a {
+        font-size: rem(25);
+        color: #51c0ec;
+        i {
+          color: red;
+        }
+      }
+    }
+
+    &__list {
+      display: flex;
+    }
+
+    &__item {
+      &.active {
+        a {
+          color: red;
+        }
+      }
+      a {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-inline: 20px;
+        transition: color 0.3s;
+        i {
+          color: red;
+          margin-bottom: 10px;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: red;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

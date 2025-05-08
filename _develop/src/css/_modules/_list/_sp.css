@@ -1,0 +1,27 @@
+@media (--sp) {
+  .page-listDot {
+    &__item {
+      position: relative;
+      padding-left: vw(46);
+      &:not(:last-of-type) {
+        margin-bottom: vw(15);
+      }
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '●';
+        color: var(--primary-color);
+      }
+    }
+  }
+  .page-listNum {
+    list-style: decimal;
+    padding-left: vw(40);
+    &__item {
+      &::marker {
+        font-weight: bold;
+      }
+    }
+  }
+}

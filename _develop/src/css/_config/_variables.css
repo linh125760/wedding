@@ -1,0 +1,26 @@
+:root {
+  /* color */
+  --primary-color: #3873c2;
+  --color-red: #f0394d;
+  --text-color: #000;
+
+  /* font family */
+  --font-base: 'Quicksand', sans-serif;
+  --font-second: 'Mulish', sans-serif;
+  --font-en-noto: 'Noto Serif Display', serif;
+  --font-en-hand: 'Monsieur La Doulaise', cursive;
+  --font-madi: 'Ms Madi', cursive;
+
+  /* z-index */
+  --z_upper: 3000;
+  --z_middle: 2000;
+  --z_low: 1000;
+
+  --leading-trim: calc((1em - 1lh) / 2);
+}
+
+@supports not (top: 1lh) {
+  :root {
+    --leading-trim: 0px;
+  }
+}

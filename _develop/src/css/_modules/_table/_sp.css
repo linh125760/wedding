@@ -1,0 +1,28 @@
+@media (--sp) {
+  .page-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    th {
+      width: vw(157);
+      background-color: #fafafa;
+      color: #000;
+      font-size: vw(26);
+    }
+    th,
+    td {
+      padding: vw(14) vw(18);
+      border: 1px solid #cfcfcf;
+      font-size: vw(26);
+      font-weight: 400;
+      line-height: lh(26, 40);
+      letter-spacing: ls(100);
+      color: #000;
+    }
+    thead {
+      th {
+        background: #fafafa;
+        text-align: center;
+      }
+    }
+  }
+}
