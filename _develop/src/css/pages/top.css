@@ -3,5 +3,8 @@
 @import '../_config/_mixin';
 @import '../_config/_media';
 
+@import '../_modules/_form/_style';
+
+
 @import './_top/_pc';
 @import './_top/_sp';

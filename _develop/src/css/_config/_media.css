@@ -1,4 +1,4 @@
-@custom-media --pc (min-width: 1501px), print;
+@custom-media --pc (min-width: 769px), print;
 @custom-media --tb (min-width: 769px) and (max-width: 1500px);
 @custom-media --sp only screen and (max-width: 768px);
 @custom-media --hover (hover: hover);

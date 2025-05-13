@@ -6,7 +6,7 @@
 /* 下記はcommonだけで良い */
 @import './_config/_fonts';
 @import './_config/_reset';
-/* @import './_modules/_animation/_style'; */
+@import './_modules/_animation/_style';
 @import './_modules/_layout/_style';
 @import './_modules/_header/_style';
 @import './_modules/_footer/_style';

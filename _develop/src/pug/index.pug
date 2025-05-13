@@ -8,7 +8,15 @@ block append vars
 
 block main
   .row
-    .mv 
+    +img('music_player.png').toggle-audio-img
+    .send-love 
+      figure
+        +img('send.png').fit
+      <div class="toast">Gửi lời yêu thương 💌</div>
+    section.mv 
+      .mv-name 
+        figure 
+          +img('logo_lh.svg').fit
       .mv-heading
         .mv-heading_title 
           |SAVE 
@@ -17,112 +25,218 @@ block main
         .mv-heading_date 
           |25.05.2025
       
-      .mv-invite 
-        p THIỆP MỜI 
-        P.font-second.mv-invite01 TRÂN TRỌNG KÍNH MỜI
-        P.font-hand.mv-invite02 Quý khách 
-
-        P ĐẾN DỰ LỄ THÀNH HÔN<br>CỦA GIA ĐÌNH CHÚNG TÔI
-    
-    .intro
-      div
+    section.intro
+      div.intro-name.intersect-elem.fadeInUp
         p.name NGỌC LINH
         p.font-hand.with cùng
         p.name THANH HƯƠNG
       
-      figure 
-        +img('section01.jpg').fit
+      .people 
+        .people-wrap 
+          .people-item
+            figure.intersect-elem.fadeInUp
+              +img('chu-re.jpg').fit
+            .people-content.intersect-elem.fadeInUp
+              p.parent Nhà trai 
+                br
+                |Ba: Lê Ngọc Dư
+                br
+                |Mẹ: Dương Thị Huệ
 
-      div.address
-        p.font-hand Tư Gia Nam
-        p Tổ 5, Liễu Thạnh, Bình Nguyên, 
-          br.only-sp
-          |Thăng Bình, Quảng Nam 
-        p Vào lúc 10h15 - Chủ Nhật 
-        p.font-second 
-          strong NGÀY 25 THÁNG 05 NĂM 2025
-        p
-          i ( Nhằm Ngày 28 Tháng 04 Âm Lịch ) 
+              p.position Út Nam
+              p.name Ngọc Linh 
 
-    .our-little 
+              p.introduction.intersect-elem.fadeInUp Một chàng trai làm nghề IT – lập trình front-end, tuy ít nói nhưng luôn mang lại tiếng cười cho mọi người bằng sự hài hước nhẹ nhàng và chân thành. Hiền lành, ấm áp và luôn đặt gia đình lên hàng đầu, anh là kiểu người mà ai gặp cũng dễ mến và tin tưởng.
+          .people-item
+            figure.intersect-elem.fadeInUp 
+              +img('co-dau.jpg').fit
+            .people-content.intersect-elem.fadeInUp 
+              p.parent Nhà gái 
+                br
+                |Ba: Lê Thành Thiên
+                br
+                |Mẹ: Phạm Thị Nguyệt
+
+              p.position Trưởng Nữ
+              p.name Thanh Hương
+
+              p.introduction.intersect-elem.fadeInUp Thanh Hương, cô gái mang tâm hồn dịu dàng nhưng sâu sắc sẽ là mảnh ghép hoàn hảo trong câu chuyện tình yêu đầy cảm xúc này. Hiện tại, Hương đang công tác tại Công ty TNHH ITIFY. Với tất cả sự dịu dàng, sáng tạo và yêu đời, Thanh Hương đã sẵn sàng bước vào hành trình mới, cùng người thương viết tiếp câu chuyện hạnh phúc ngọt ngào. Hãy cùng gửi những lời chúc tốt đẹp nhất đến cô dâu xinh đẹp của chúng ta nhé!
+
+
+    section.house
+      p.house-ttl.intersect-elem.fadeInUp Thiệp Mời
+      p.house-txt.intersect-elem.fadeInUp Trân trọng kính mời quý khách 
+        br.only-sp
+        |đến dự lễ thành hôn cùng gia đình chúng tôi
+      .house-wrap
+        .house-item
+          figure.intersect-elem.fadeInUp 
+            +img('nha-gai.jpg').fit
+
+          div.address.intersect-elem.fadeInUp
+            p.font-hand Tư Gia Nữ
+            p.detail Tổ 7, Hiền Lương, Bình Giang,
+              br
+              |Thăng Bình, Quảng Nam 
+              br
+              a(href="https://maps.app.goo.gl/B17HLFvwJZFKcTJTA", target="_blank", rel="noopener noreferrer") Map
+            p Vào lúc 10h15 - Thứ Sáu
+            p.font-second 
+              strong NGÀY 23 THÁNG 05 NĂM 2025
+            p
+              i ( Nhằm Ngày 26 Tháng 04 Âm Lịch ) 
+
+        .house-item
+          figure.intersect-elem.fadeInUp 
+            +img('nha-trai.jpg').fit
+
+          div.address.intersect-elem.fadeInUp
+            p.font-hand Tư Gia Nam
+            p.detail Tổ 5, Liễu Thạnh, Bình Nguyên, 
+              br
+              |Thăng Bình, Quảng Nam 
+              br
+              a(href="https://maps.app.goo.gl/9KgCcbSwcyX21K9m6", target="_blank", rel="noopener noreferrer") Map 
+
+            p Vào lúc 10h15 - Chủ Nhật 
+            p.font-second 
+              strong NGÀY 25 THÁNG 05 NĂM 2025
+            p
+              i ( Nhằm Ngày 28 Tháng 04 Âm Lịch ) 
+
+      p.timeline-tl.intersect-elem.fadeInUp The big day timeline !
+
+      .timeline 
+        dl.intersect-elem.fadeInLeft
+          dt 10:15
+          dd ĐÓN KHÁCH
+            figure 
+              +img('timeline01.png').fit
+        
+        dl.intersect-elem.fadeInRight
+          dt 10:30
+          dd LỄ CƯỚI
+            figure 
+              +img('timeline02.png').fit
+        
+        dl.intersect-elem.fadeInLeft
+          dt 10:45
+          dd NHẬP TIỆC
+            figure 
+              +img('timeline03.png').fit
+        
+        dl.intersect-elem.fadeInRight
+          dt 12:15
+          dd CHỤP ẢNH
+            figure 
+              +img('timeline04.png').fit
+
+
+
+
+    section.our-little 
       .our-little__content
-        p.our-little__font01 our
+        p.our-little__font01.intersect-elem.fadeInLeft our
           span little
-        p.our-little__font02 Love song
-
-    .gallery 
-      .gallery-wrap 
-        figure.gallery01
-          +img('gallery01.jpg').fit
-          .ill
-        figure.gallery02
-          +img('gallery02.jpg').fit
-          .ill
-        figure.gallery03
-          +img('gallery03.jpg').fit
-          .ill
-        figure.gallery04
-          +img('gallery04.jpg').fit
-          .ill
-      
-      .gallery-content 
-        p.gallery-content__txt NGỌC LINH & THANH HƯƠNG 
-          br  
-          span 25.05.2025
-        p.gallery-content__ttl The big day timeline !
-
-        .timeline 
-          dl
-            dt 10:15
-            dd ĐÓN KHÁCH
-              figure 
-                +img('timeline01.png').fit
+        p.our-little__font02.intersect-elem.fadeInUp Love song
           
-          dl
-            dt 10:30
-            dd LỄ CƯỚI
-              figure 
-                +img('timeline02.png').fit
-          
-          dl
-            dt 10:45
-            dd NHẬP TIỆC
-              figure 
-                +img('timeline03.png').fit
-          
-          dl
-            dt 12:15
-            dd CHỤP ẢNH
-              figure 
-                +img('timeline04.png').fit
-          
-    .our-little.our-little01
-
     .love-story 
-      p.love-story__ttl AND HOW WE MET...
-      p.love-story__txt 
+      p.love-story__ttl.intersect-elem.fadeInUp AND HOW WE MET...
+      p.love-story__txt.intersect-elem.fadeInUp 
         |Chúng tôi quen nhau vào năm 2018, khi cả hai còn là những học sinh lớp 12 non nớt, hồn nhiên và chẳng biết trước tương lai sẽ ra sao. Vậy mà từng ngày trôi qua, chúng tôi đã nắm tay nhau đi qua những năm tháng tuổi trẻ, có nước mắt, có nụ cười, có giận hờn, nhưng hơn tất cả là tình yêu chân thành luôn hiện diện. Sau 7 năm gắn bó, hôm nay chúng tôi chọn ở bên nhau – không còn là người yêu, mà là bạn đời. Cảm ơn em vì đã luôn ở lại. Và cảm ơn mọi người vì đã có mặt ở đây, chứng kiến khoảnh khắc thiêng liêng nhất trong cuộc đời chúng tôi.
 
-    .wrap-image 
-      figure 
-        +img('gallery04.jpg').fit
-      figure
-        +img('gallery04.jpg').fit
-      figure
-        +img('gallery04.jpg').fit
+    .wrap-image01 
+      .left
+        .down
+          figure 
+            +img('gallery01.jpg').fit
+          figure 
+            +img('gallery02.jpg').fit
+          figure 
+            +img('gallery03.jpg').fit
+          figure 
+            +img('gallery04.jpg').fit
+        .down
+          figure 
+            +img('gallery01.jpg').fit
+          figure 
+            +img('gallery02.jpg').fit
+          figure 
+            +img('gallery03.jpg').fit
+          figure 
+            +img('gallery04.jpg').fit
+      .right
+        .up
+          figure 
+            +img('gallery01.jpg').fit
+          figure 
+            +img('gallery02.jpg').fit
+          figure 
+            +img('gallery03.jpg').fit
+          figure 
+            +img('gallery04.jpg').fit
+        .up
+          figure 
+            +img('gallery01.jpg').fit
+          figure 
+            +img('gallery02.jpg').fit
+          figure 
+            +img('gallery03.jpg').fit
+          figure 
+            +img('gallery04.jpg').fit
 
-    .thanks 
-      .name-wrap 
-        figure 
-          +img('logo_lh.svg').fit
-
+    section.thanks 
       p.thanks-txt Kết thúc quá trình yêu nhau 7 năm, tụi mình đã tiến tới hôn nhân. 
         br
         |Hy vọng mọi người sẽ dành thời gian đến chung vui cùng gia đình. Hân hạnh!
       p.thanks-ttl Thank
         span you!
       
-      figure 
-        +img('gallery01.jpg').fit
+      //- section.gallery 
+      //-   .gallery-wrap 
+      //-     figure.gallery01
+      //-       +img('gallery01.jpg').fit
+      //-       .ill
+      //-     figure.gallery02
+      //-       +img('gallery02.jpg').fit
+      //-       .ill
+      //-     figure.gallery03
+      //-       +img('gallery03.jpg').fit
+      //-       .ill
+      //-     figure.gallery04
+      //-       +img('gallery04.jpg').fit
+      //-       .ill
+
+    figure.overlay
+      +img('gallery01.jpg').fit
+    
+    .modal-overlay
+      form(action="#").form 
+        .form-wrap 
+          .form-tl Xác nhận tham gia !!!
+
+          .form-row
+            .form-row__label Tên của Quý Khách
+            .form-row__input 
+              input(type="text" name="name" placeholder="Tên của Quý Khách")
+
+          .form-row 
+            .form-row__label Số điện thoại
+            .form-row__input 
+              input(type="text" name="phone" placeholder="Số điện thoại")
+          
+          .form-row 
+            .form-row__label Gửi những lời chúc 
+            .form-row__input 
+              textarea(name="text") 
+          
+          .form-row 
+            .form-row__input 
+              select#option(name="option" aria-label="Bạn có tham dự cùng không?")
+                option(value="disable" selected disabled) Bạn có tham dự cùng không? 
+                option(value="yes") Chắc chắn rồi, tôi sẽ tham gia   
+                option(value="no") Tiếc quá, hôm ấy tôi không thể tham gia   
+        button(type="submit") Gửi Lời Chúc  
+  <audio id="wedding-audio" src="assets/wedding.mp3" loop preload="auto"></audio>
 block append script
   script(src=assetPath + 'js/top.js', type="module", crossorigin)
