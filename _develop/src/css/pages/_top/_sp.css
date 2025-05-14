@@ -3,6 +3,16 @@
     background-color: #000;
   }
 
+  .toggle-audio-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z_upper);
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+  }
+
   .row {
     position: relative;
     background: url('../images/background.jpeg') repeat center center;
@@ -75,7 +85,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-block: 0 80px;
+    padding-block: 0 200px;
     &:after {
       content: '';
       position: absolute;
@@ -101,7 +111,7 @@
       color: #f2e9d5;
       color: #fff;
       &_title {
-        font-size: rem(70);
+        font-size: rem(90);
         line-height: 1.2;
         font-family: var(--font-en-noto);
 
@@ -111,7 +121,7 @@
       }
 
       &_date {
-        font-size: rem(35);
+        font-size: rem(50);
         line-height: 1;
         font-family: var(--font-en-noto);
       }
@@ -125,12 +135,12 @@
       margin-bottom: 35px;
       .name {
         font-family: var(--font-en-noto);
-        font-size: rem(40);
+        font-size: rem(50);
         line-height: 1;
       }
 
       .with {
-        font-size: rem(50);
+        font-size: rem(55);
         line-height: 1;
         margin-bottom: 15px;
       }
@@ -172,25 +182,27 @@
         width: 100%;
         .parent {
           margin-top: 10px;
-          margin-bottom: 25px;
+          margin-bottom: 20px;
           text-transform: uppercase;
           font-weight: bold;
-          font-size: rem(18);
+          font-size: rem(20);
           line-height: 1.5;
+          letter-spacing: 0;
         }
         .position {
-          font-size: rem(20);
+          font-size: rem(25);
         }
         .name {
-          font-size: rem(45);
+          font-size: rem(55);
           line-height: 1;
           font-family: var(--font-madi);
           margin-bottom: 25px;
         }
         .introduction {
           padding-inline: 10px;
-          font-size: rem(19);
-          line-height: 1.75;
+          font-size: rem(20);
+          letter-spacing: ls(20);
+          line-height: 1.5;
           text-align: justify;
         }
       }
@@ -200,7 +212,9 @@
   .house {
     text-align: center;
     margin-block: 50px 100px;
-
+    &-wrap {
+      margin-bottom: 50px;
+    }
     &-ttl {
       font-family: var(--font-madi);
       font-size: rem(70);
@@ -212,15 +226,19 @@
         font-family: var(--font-en-noto);
       }
     }
+    &-txt {
+      font-size: rem(24);
+      letter-spacing: ls(20);
+    }
     &-item {
       &:not(:last-child) {
-        margin-bottom: 40px;
+        margin-bottom: 80px;
       }
     }
     figure {
       position: relative;
-      width: 300px;
-      height: 400px;
+      width: 500px;
+      height: 700px;
       margin: 30px auto 20px;
       -webkit-mask-image: url('../images/nen.png');
       mask-image: url('../images/nen.png');
@@ -236,12 +254,12 @@
     .address {
       line-height: 1.2;
       .font-hand {
-        font-size: rem(40);
+        font-size: rem(80);
         line-height: 1.2;
         margin-bottom: 15px;
       }
       .detail {
-        line-height: 1.25;
+        line-height: 1.5;
         margin-bottom: 10px;
         a {
           position: relative;
@@ -249,24 +267,27 @@
           display: inline-block;
           text-underline-offset: 2px;
           margin-top: 5px;
-
-          font-size: rem(18);
+          font-size: rem(40);
           &:after {
             content: '';
             position: absolute;
             margin-left: 3px;
-            width: 22px;
-            height: 22px;
+            width: 50px;
+            height: 50px;
             background: url('../images/map.png') no-repeat center;
             background-size: 100% 100%;
             animation: pulseZoom 1.2s infinite;
           }
         }
       }
+      p {
+        line-height: 1.75;
+      }
     }
   }
 
   .timeline {
+    margin-top: 30px;
     padding-inline: 70px;
     &-tl {
       text-align: center;
@@ -487,12 +508,14 @@
 
     &__ttl {
       font-family: var(--font-en-noto);
-      font-size: rem(45);
+      font-size: rem(50);
+      margin-bottom: 10px;
     }
 
     &__txt {
       text-align: justify;
-      line-height: 1.75;
+      line-height: 1.5;
+      letter-spacing: ls(20);
     }
   }
 
@@ -557,18 +580,19 @@
 
     &-txt {
       text-align: center;
+      letter-spacing: ls(50);
       margin-bottom: 30px;
     }
 
     &-ttl {
       font-family: var(--font-en-noto);
-      font-size: rem(70);
+      font-size: rem(80);
       line-height: 1;
       span {
         display: block;
         font-family: var(--font-madi);
         line-height: 1;
-        font-size: rem(50);
+        font-size: rem(70);
         letter-spacing: ls(100);
         margin-left: 180px;
       }
@@ -603,7 +627,7 @@
     background: #fff;
     padding: 30px 25px;
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 700px;
     width: 100%;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transform: translateY(-20px);
@@ -619,15 +643,15 @@
   .form-wrap {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
   }
 
   .form-tl {
-    font-size: rem(30);
+    font-size: rem(40);
     line-height: 1;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
   }
 
   .form-row {
@@ -656,14 +680,17 @@
 
   .form {
     button {
+      width: 250px;
+      height: 80px;
+      border-radius: 15px;
       margin: 25px auto 0;
       padding: 5px 25px;
       display: block;
+      font-size: rem(26);
       border: none;
       text-align: center;
       background: red;
       color: #fff;
-      font-size: rem(16);
     }
   }
 }

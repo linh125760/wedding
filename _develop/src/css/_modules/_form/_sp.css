@@ -50,7 +50,7 @@
     background-position: center right vw(20);
     background-repeat: no-repeat;
     background-size: vw(16) vw(20);
-    line-height: 1;
+    line-height: 1.5;
     letter-spacing: 0.1em;
     white-space: nowrap;
     &::-ms-expand {
