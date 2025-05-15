@@ -135,8 +135,8 @@
       margin-bottom: 35px;
       .name {
         font-family: var(--font-en-noto);
-        font-size: rem(50);
-        line-height: 1;
+        font-size: rem(60);
+        line-height: 1.5;
       }
 
       .with {
@@ -182,25 +182,25 @@
         width: 100%;
         .parent {
           margin-top: 10px;
-          margin-bottom: 20px;
+          margin-bottom: 10px;
           text-transform: uppercase;
           font-weight: bold;
-          font-size: rem(20);
-          line-height: 1.5;
+          font-size: rem(22);
+          line-height: 1.35;
           letter-spacing: 0;
         }
         .position {
           font-size: rem(25);
         }
         .name {
-          font-size: rem(55);
+          font-size: rem(60);
           line-height: 1;
           font-family: var(--font-madi);
           margin-bottom: 25px;
         }
         .introduction {
           padding-inline: 10px;
-          font-size: rem(20);
+          font-size: rem(22);
           letter-spacing: ls(20);
           line-height: 1.5;
           text-align: justify;
@@ -217,7 +217,7 @@
     }
     &-ttl {
       font-family: var(--font-madi);
-      font-size: rem(70);
+      font-size: rem(80);
       line-height: 1.5;
       span {
         display: block;
@@ -227,7 +227,8 @@
       }
     }
     &-txt {
-      font-size: rem(24);
+      font-size: rem(25);
+      line-height: 1.5;
       letter-spacing: ls(20);
     }
     &-item {
@@ -254,7 +255,7 @@
     .address {
       line-height: 1.2;
       .font-hand {
-        font-size: rem(80);
+        font-size: rem(70);
         line-height: 1.2;
         margin-bottom: 15px;
       }
@@ -292,12 +293,15 @@
     &-tl {
       text-align: center;
       font-family: var(--font-madi);
-      font-size: rem(70);
+      font-size: rem(80);
     }
     dl {
       width: 100%;
       display: flex;
       align-items: center;
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
       &:nth-child(2n) {
         flex-direction: row-reverse;
         dt {
@@ -306,25 +310,25 @@
         dd {
           flex-direction: row-reverse;
           figure {
-            animation-delay: 0.2s;
+            animation-delay: 0.5s;
           }
         }
       }
       dt {
-        font-size: rem(25);
+        font-size: rem(40);
         margin-inline: 0 20px;
       }
 
       dd {
         display: flex;
         align-items: center;
-        font-size: rem(20);
+        font-size: rem(30);
         figure {
-          width: 50px;
+          width: 80px;
           margin-block: 0;
           height: auto;
           margin-inline: 25px;
-          animation: cheersShake 1s infinite;
+          animation: cheersShake 2s infinite;
           transform-origin: bottom center;
         }
       }
@@ -341,14 +345,14 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse farthest-corner at 60% 40%, rgba(0, 0, 0, 0.2), #000);
+      background: radial-gradient(ellipse farthest-corner at 60% 40%, rgba(0, 0, 0, 0.1), #000);
     }
 
     &__content {
       position: relative;
       z-index: 1;
       color: #fff;
-      font-size: rem(50);
+      font-size: rem(60);
       padding: 50px;
     }
 
@@ -508,7 +512,7 @@
 
     &__ttl {
       font-family: var(--font-en-noto);
-      font-size: rem(50);
+      font-size: rem(55);
       margin-bottom: 10px;
     }
 
@@ -533,7 +537,7 @@
 
     &01 {
       position: relative;
-      height: 800px;
+      height: 1000px;
       overflow: hidden;
       padding-inline: 20px;
       display: grid;
@@ -542,7 +546,7 @@
 
       .down,
       .up {
-        animation-duration: 40s;
+        animation-duration: 50s;
         animation-iteration-count: infinite;
         animation-timing-function: linear;
       }
@@ -558,7 +562,7 @@
         height: 400px;
         margin-bottom: 15px;
         img {
-          object-position: bottom;
+          object-position: center;
         }
       }
     }

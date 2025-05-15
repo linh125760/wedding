@@ -15,9 +15,9 @@ block main
       <div class="toast">Gửi lời yêu thương 💌</div>
     section.mv 
       .mv-name 
-        figure 
+        figure.intersect-elem.fadeInUp 
           +img('logo_lh.svg').fit
-      .mv-heading
+      .mv-heading.intersect-elem.fadeInUp
         .mv-heading_title 
           |SAVE 
           span the 
@@ -149,41 +149,61 @@ block main
       .left
         .down
           figure 
-            +img('gallery01.jpg').fit
+            +img('img01.jpg').fit
           figure 
-            +img('gallery02.jpg').fit
+            +img('img03.jpg').fit
           figure 
-            +img('gallery03.jpg').fit
+            +img('img05.jpg').fit
           figure 
-            +img('gallery04.jpg').fit
+            +img('img07.jpg').fit
+          figure 
+            +img('img09.jpg').fit
+          figure 
+            +img('img11.jpg').fit
+          
         .down
           figure 
-            +img('gallery01.jpg').fit
+            +img('img01.jpg').fit
           figure 
-            +img('gallery02.jpg').fit
+            +img('img03.jpg').fit
           figure 
-            +img('gallery03.jpg').fit
+            +img('img05.jpg').fit
           figure 
-            +img('gallery04.jpg').fit
+            +img('img07.jpg').fit
+          figure 
+            +img('img09.jpg').fit
+          figure 
+            +img('img11.jpg').fit
+          
       .right
         .up
           figure 
-            +img('gallery01.jpg').fit
+            +img('img02.jpg').fit
           figure 
-            +img('gallery02.jpg').fit
+            +img('img04.jpg').fit
           figure 
-            +img('gallery03.jpg').fit
+            +img('img06.jpg').fit
           figure 
-            +img('gallery04.jpg').fit
+            +img('img08.jpg').fit
+          figure 
+            +img('img10.jpg').fit
+          figure 
+            +img('img08.jpg').fit
+          
         .up
           figure 
-            +img('gallery01.jpg').fit
+            +img('img02.jpg').fit
           figure 
-            +img('gallery02.jpg').fit
+            +img('img04.jpg').fit
           figure 
-            +img('gallery03.jpg').fit
+            +img('img06.jpg').fit
           figure 
-            +img('gallery04.jpg').fit
+            +img('img08.jpg').fit
+          figure 
+            +img('img10.jpg').fit
+          figure 
+            +img('img08.jpg').fit
+          
 
     section.thanks 
       p.thanks-txt Kết thúc quá trình yêu nhau 7 năm, 
@@ -220,22 +240,29 @@ block main
           .form-row
             .form-row__label Tên của Quý Khách
             .form-row__input 
-              input(type="text" name="name" placeholder="Tên của Quý Khách")
+              input(type="text" name="name" placeholder="Tên của Quý Khách" required)
 
           .form-row 
             .form-row__label Số điện thoại
             .form-row__input 
-              input(type="text" name="phone" placeholder="Số điện thoại")
+              input(
+                type="tel" 
+                name="phone" 
+                placeholder="Số điện thoại" 
+                pattern="0[0-9]{9}" 
+                required
+              )
+              //- input(type="text" name="phone" placeholder="Số điện thoại")
           
           .form-row 
             .form-row__label Gửi những lời chúc 
             .form-row__input 
-              textarea(name="text") 
+              textarea(name="text" placeholder="Lời chúc..." required).
           
           .form-row 
             .form-row__input 
-              select#option(name="option" aria-label="Bạn có tham dự cùng không?")
-                option(value="disable" selected disabled) Bạn có tham dự cùng không? 
+              select#option(name="option" required aria-label="Bạn có tham dự cùng không?")
+                option(value="" disabled selected hidden) Bạn có tham dự cùng không? 
                 option(value="yes") Chắc chắn rồi, tôi sẽ tham gia   
                 option(value="no") Tiếc quá, hôm ấy tôi không thể tham gia   
         button(type="submit") Gửi Lời Chúc  
