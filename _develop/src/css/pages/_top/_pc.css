@@ -1,7 +1,27 @@
 @media (--pc) {
   body {
-    background-color: #000;
+    position: relative;
+    &:after,
+    &:before {
+      content: '';
+      position: fixed;
+      inset: 0;
+    }
+    &:after {
+      z-index: -2;
+      background-image: url('../images/nen.jpg');
+      background-size: cover cover;
+      background-position: center;
+    }
+    &:before {
+      z-index: -1;
+      background: rgba(0, 0, 0, 0.2);
+      -webkit-backdrop-filter: blur(15px);
+      backdrop-filter: blur(15px);
+      transform: translateZ(0);
+    }
   }
+
   .toggle-audio-img {
     position: fixed;
     top: 0;
@@ -595,7 +615,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse farthest-corner at 60% 40%, rgba(0, 0, 0, 0.2), #000);
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     }
   }
 
